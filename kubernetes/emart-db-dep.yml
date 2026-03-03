@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: emart-app
+  labels:
+    app: my-emart
+    auther: Tawfeeq
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: emart-app
+  template:
+    metadata:
+      labels:
+        app: emart-app
+    spec:
+      containers:
+        - name: emart
+          image: mysql:8.0.33
+          ports:
+            - containerPort: 3306
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: emartdbpass
+            - name: MYSQL_DATABASE
+              value: books
+

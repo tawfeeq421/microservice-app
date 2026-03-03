@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodeapi-service
+  labels:
+    app: nodeapi-service
+    auther: Tawfeeq
+spec:
+  selector:
+    app: nodeapi
+  ports:
+   - protocol: TCP
+     port: 5000
+     targetPort: 5000
+  type: ClusterIP
